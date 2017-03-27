@@ -9,6 +9,10 @@ serverSocket.bind(('', serverPort))
 print "The server is ready to receive"
 
 while 1:
-    message, clientAddress = serverSocket.recvfrom(2048)
-    modifiedMessage = message.upper()
-    serverSocket.sendto(modifiedMessage, clientAddress)
+    sum, clientAddress = serverSocket.recvfrom(2048)
+
+    numbers = sum.split('+')
+
+    numbersAdd = str(int(numbers[0]) + int(numbers[1]))
+
+    serverSocket.sendto(numbersAdd, clientAddress)

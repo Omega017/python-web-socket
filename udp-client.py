@@ -5,12 +5,12 @@ serverPort = 12000
 
 clientSocket = socket(AF_INET, SOCK_DGRAM)
 
-message = raw_input('Input lowercase sentence:')
+sum = raw_input('Input the sum (e.g: 2+2): ')
 
-clientSocket.sendto(message, (serverName, serverPort))
+clientSocket.sendto(sum, (serverName, serverPort))
 
-modifiedMessage, serverAddress = clientSocket.recvfrom(2048)
+numbersAdd, serverAddress = clientSocket.recvfrom(2048)
 
-print modifiedMessage
+print numbersAdd
 
 clientSocket.close()
